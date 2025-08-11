@@ -1,0 +1,433 @@
+/* Accessibility Styles for Agno WorkSphere */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip links */
+.skip-links {
+  position: relative;
+  z-index: 9999;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: top 0.3s;
+}
+
+.skip-link:focus,
+.skip-link.focused {
+  top: 6px;
+}
+
+/* Reduced motion preferences */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* High contrast mode */
+.high-contrast {
+  --tw-bg-white: #000000;
+  --tw-bg-gray-50: #1a1a1a;
+  --tw-bg-gray-100: #2d2d2d;
+  --tw-bg-gray-200: #404040;
+  --tw-bg-gray-800: #e6e6e6;
+  --tw-bg-gray-900: #ffffff;
+  
+  --tw-text-gray-900: #ffffff;
+  --tw-text-gray-800: #e6e6e6;
+  --tw-text-gray-600: #cccccc;
+  --tw-text-gray-500: #b3b3b3;
+  --tw-text-white: #000000;
+  
+  --tw-border-gray-200: #666666;
+  --tw-border-gray-300: #808080;
+}
+
+.high-contrast button,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast a {
+  text-decoration: underline !important;
+}
+
+/* Large text mode */
+.large-text {
+  font-size: 120% !important;
+}
+
+.large-text .text-xs {
+  font-size: 0.9rem !important;
+}
+
+.large-text .text-sm {
+  font-size: 1rem !important;
+}
+
+.large-text .text-base {
+  font-size: 1.2rem !important;
+}
+
+.large-text .text-lg {
+  font-size: 1.4rem !important;
+}
+
+.large-text .text-xl {
+  font-size: 1.6rem !important;
+}
+
+.large-text .text-2xl {
+  font-size: 1.8rem !important;
+}
+
+/* Screen reader optimized mode */
+.screen-reader-optimized .sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border: 0;
+}
+
+/* Focus visible styles */
+.focus-visible *:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+.focus-visible button:focus,
+.focus-visible input:focus,
+.focus-visible select:focus,
+.focus-visible textarea:focus,
+.focus-visible a:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Enhanced focus indicators for interactive elements */
+.focus-visible [role="button"]:focus,
+.focus-visible [role="tab"]:focus,
+.focus-visible [role="menuitem"]:focus,
+.focus-visible [role="option"]:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Keyboard navigation indicators */
+.keyboard-navigation [data-keyboard-focused="true"] {
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 2px solid #3b82f6;
+}
+
+/* Improved contrast for form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  border: 2px solid #d1d5db;
+  background-color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Error states with better accessibility */
+.error input,
+.error textarea,
+.error select {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.error-message {
+  color: #dc2626;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* Success states */
+.success input,
+.success textarea,
+.success select {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+/* Loading states with accessibility */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Accessible tooltips */
+.tooltip {
+  position: relative;
+}
+
+.tooltip[aria-describedby] {
+  cursor: help;
+}
+
+.tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.tooltip:hover .tooltip-content,
+.tooltip:focus .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Accessible modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-content:focus {
+  outline: none;
+}
+
+/* Accessible tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Accessible form groups */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #374151;
+}
+
+.form-label.required::after {
+  content: ' *';
+  color: #ef4444;
+}
+
+.form-help {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Accessible buttons */
+button[disabled],
+input[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:not([disabled]):hover,
+button:not([disabled]):focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Accessible navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+nav a[aria-current="page"] {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Accessible progress indicators */
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+/* Accessible alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+}
+
+.alert-info {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+}
